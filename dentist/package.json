@@ -1,0 +1,9 @@
+{
+  "name": "dentist",
+  "version": "0.0.0",
+  "description": "dentist",
+  "main": "server.js",
+  "author": {
+    "name": ""
+  }
+}
