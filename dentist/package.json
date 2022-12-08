@@ -5,5 +5,8 @@
   "main": "server.js",
   "author": {
     "name": ""
+  },
+  "dependencies": {
+    "cookie-parser": "^1.4.6"
   }
 }
