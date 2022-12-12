@@ -22,10 +22,17 @@ app.get('/', (req, res) => {
 app.post('/rezerwacja', (req, res) => {
 	res.sendFile(__dirname + '/Public/Page2.html');
 	res.cookie('godzina', req.body.godzina);
-	//console.log("submit");
-	//console.log(req.body);
+	console.log("submit");
+	console.log(req.body);
 });
 
+app.post('/dane', (req, res) => {
+	console.log(req.body);
+	//console.log(req.body.imie);
+	//console.log(req.body.nazwisko);
+	//console.log(req.body.tel);
+	res.end("dziekujemy za rezerwacje");
+});
 
 http.listen(port, () => {
 

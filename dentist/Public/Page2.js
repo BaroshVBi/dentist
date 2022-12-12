@@ -1,6 +1,7 @@
 //alert(decodeURIComponent(document.cookie));
 alert(getCookie('godzina'));
 document.getElementById('rezerwacja').innerHTML = '9:00';
+document.getElementById('rezerwacjainput').value = '9:00';
 
     //https://www.w3schools.com/js/js_cookies.asp
 function getCookie(cname) { 
