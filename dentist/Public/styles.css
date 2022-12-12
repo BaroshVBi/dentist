@@ -1,7 +1,27 @@
 body {
-    background-color:black;
+    
 }
 
 div {
-    display:inline-block;
+    display: inline-grid;
+}
+
+.radio-toolbar input[type="radio"] {
+    display: none;
+}
+
+.radio-toolbar label {
+    border-radius: 10px;
+    display: inline-grid;
+    background-color: #ddd;
+    padding: 6px 15px;
+    font-family: Arial;
+    font-size: 16px;
+    cursor: pointer;
+    margin-bottom: 2px;
+    text-align:center;
+}
+
+.radio-toolbar input[type="radio"]:checked + label {
+    background-color: #bbb;
 }
