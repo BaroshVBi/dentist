@@ -15,9 +15,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 
-var test = {
-	godzina : "3"
-}
 app.get('/', (req, res) => {
 	res.sendFile(__dirname + '/Public/Page1.html');
 });

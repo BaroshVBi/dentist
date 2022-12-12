@@ -28,10 +28,13 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
+    <Content Include="Public\Page2.js">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="Public\Page2.html">
       <SubType>Code</SubType>
     </Content>
-    <Content Include="Public\main.js">
+    <Content Include="Public\Page1.js">
       <SubType>Code</SubType>
     </Content>
     <Content Include="Public\Page1.html">
