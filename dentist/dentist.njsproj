@@ -28,6 +28,7 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
+    <Content Include="database\wizyty.sql" />
     <Content Include="Public\Page2.js">
       <SubType>Code</SubType>
     </Content>
@@ -48,6 +49,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="database\" />
     <Folder Include="Public\" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\Node.js Tools\Microsoft.NodejsToolsV2.targets" />

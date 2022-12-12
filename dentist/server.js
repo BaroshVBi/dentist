@@ -6,9 +6,17 @@ var http = require('http').createServer(app);
 var fs = require('fs');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var mysql = require('mysql');
 var io = require('socket.io')(http);
 
 var port = process.env.PORT || 8080;
+
+var con = mysql.createConnection({
+	host: "localhost",
+	user: "root",
+	password: "root",
+	database: "dentist"
+});
 
 app.use(express.static(path.join(__dirname, '/Public')));
 app.use(bodyParser.json());
@@ -31,6 +39,17 @@ app.post('/dane', (req, res) => {
 	//console.log(req.body.imie);
 	//console.log(req.body.nazwisko);
 	//console.log(req.body.tel);
+
+	con.connect(function (err) {
+		if (err) throw err;
+		console.log("Connected!");
+		var sql = "INSERT INTO wizyty (data, imie, tel) VALUES ('" + req.body.godzina + "', '" + req.body.imie + " " + req.body.nazwisko + "', '" + req.body.tel + "')";
+		con.query(sql, function (err, result) {
+			if (err) throw err;
+			console.log("1 record inserted");
+		});
+	});
+
 	res.end("dziekujemy za rezerwacje");
 });
 
