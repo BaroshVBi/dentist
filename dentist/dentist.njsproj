@@ -28,6 +28,9 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
+    <Content Include="Public\Page2.html">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="Public\main.js">
       <SubType>Code</SubType>
     </Content>

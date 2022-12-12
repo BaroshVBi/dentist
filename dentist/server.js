@@ -19,7 +19,7 @@ app.get('/', (req, res) => {
 });
 
 app.post('/rezerwacja', (req, res) => {
-	res.sendFile(__dirname + '/Public/Page1.html');
+	res.sendFile(__dirname + '/Public/Page2.html');
 	console.log("submit");
 	console.log(req.body.godzina);
 });
