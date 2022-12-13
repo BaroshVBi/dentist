@@ -9,6 +9,11 @@ var bodyParser = require('body-parser');
 var mysql = require('mysql');
 var io = require('socket.io')(http);
 
+app.use(express.static(path.join(__dirname, '/Public')));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cookieParser());
+
 var port = process.env.PORT || 8080;
 
 var con = mysql.createConnection({
@@ -17,11 +22,6 @@ var con = mysql.createConnection({
 	password: "root",
 	database: "dentist"
 });
-
-app.use(express.static(path.join(__dirname, '/Public')));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cookieParser());
 
 app.get('/', (req, res) => {
 	res.sendFile(__dirname + '/Public/Page1.html');
@@ -36,9 +36,6 @@ app.post('/rezerwacja', (req, res) => {
 
 app.post('/dane', (req, res) => {
 	console.log(req.body);
-	//console.log(req.body.imie);
-	//console.log(req.body.nazwisko);
-	//console.log(req.body.tel);
 
 	con.connect(function (err) {
 		if (err) throw err;
