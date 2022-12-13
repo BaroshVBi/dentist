@@ -1,6 +1,5 @@
-//alert(decodeURIComponent(document.cookie));
-//alert(getCookie('godzina'));
-document.getElementById('rezerwacja').innerHTML = '9:00';
+var time = new Date(getCookie('godzina'));
+document.getElementById('rezerwacja').innerHTML = time.getHours() + ':00';
 document.getElementById('rezerwacjainput').value = getCookie('godzina');
 
     //https://www.w3schools.com/js/js_cookies.asp

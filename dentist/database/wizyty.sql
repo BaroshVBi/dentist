@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 12 Gru 2022, 16:02
+-- Czas generowania: 13 Gru 2022, 11:54
 -- Wersja serwera: 10.4.24-MariaDB
 -- Wersja PHP: 8.1.6
 
@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `wizyty` (
   `id` int(11) NOT NULL,
-  `data` text NOT NULL,
+  `data` datetime NOT NULL,
   `imie` text NOT NULL,
   `tel` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -39,7 +39,10 @@ CREATE TABLE `wizyty` (
 --
 
 INSERT INTO `wizyty` (`id`, `data`, `imie`, `tel`) VALUES
-(1, '9:00', 'bar asdf', 234);
+(1, '0000-00-00 00:00:00', 'bar asdf', 234),
+(2, '2022-12-13 09:00:00', 'bar tek', 234),
+(3, '2022-12-13 11:00:00', 'sdf rte', 345),
+(4, '2022-12-13 13:00:00', 'sdf rte', 234);
 
 --
 -- Indeksy dla zrzutów tabel
@@ -59,7 +62,7 @@ ALTER TABLE `wizyty`
 -- AUTO_INCREMENT dla tabeli `wizyty`
 --
 ALTER TABLE `wizyty`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
