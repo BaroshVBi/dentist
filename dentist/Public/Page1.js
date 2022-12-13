@@ -24,7 +24,6 @@ for (w = 0; w < 6; w++) {
 }
 panel.innerHTML += "<button type='button' onclick='plusDivs(-1)'>&#10095;</button>";
 
-
 //https://www.w3schools.com/w3css/tryit.asp?filename=tryw3css_slideshow_self
 /////////////////////////////////////////////////////////////////////////////
 var slideIndex = 1;

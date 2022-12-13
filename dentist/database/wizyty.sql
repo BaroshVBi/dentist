@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 13 Gru 2022, 11:54
+-- Czas generowania: 13 Gru 2022, 14:52
 -- Wersja serwera: 10.4.24-MariaDB
 -- Wersja PHP: 8.1.6
 
@@ -42,7 +42,10 @@ INSERT INTO `wizyty` (`id`, `data`, `imie`, `tel`) VALUES
 (1, '0000-00-00 00:00:00', 'bar asdf', 234),
 (2, '2022-12-13 09:00:00', 'bar tek', 234),
 (3, '2022-12-13 11:00:00', 'sdf rte', 345),
-(4, '2022-12-13 13:00:00', 'sdf rte', 234);
+(4, '2022-12-13 13:00:00', 'sdf rte', 234),
+(5, '2022-12-17 13:00:00', 'cx dfg', 24),
+(6, '0000-00-00 00:00:00', 'bar rte', 123456789),
+(7, '2022-12-15 10:00:00', 'bar rte', 123456789);
 
 --
 -- Indeksy dla zrzutów tabel
@@ -62,7 +65,7 @@ ALTER TABLE `wizyty`
 -- AUTO_INCREMENT dla tabeli `wizyty`
 --
 ALTER TABLE `wizyty`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
