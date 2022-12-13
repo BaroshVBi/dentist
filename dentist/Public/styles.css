@@ -6,6 +6,14 @@ div {
     display: inline-grid;
 }
 
+h2 {
+    margin-bottom:1px;
+}
+
+p {
+    margin-top:1px;
+}
+
 .radio-toolbar input[type="radio"] {
     display: none;
 }
