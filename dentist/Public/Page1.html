@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <link rel="stylesheet" href="styles.css">
-    <meta charset="utf-8" />
-    <title>Godzina</title>
-</head>
-<body>
-    <form id="panel" action="rezerwacja" method="post">
-        <h1>Godzina</h1>
-    </form>
-    <script src="Page1.js"></script>
-</body>
+    <head>
+        <link rel="stylesheet" href="styles.css">
+        <meta charset="utf-8" />
+        <title>Godzina</title>
+    </head>
+    <body>
+        <form id="panelform" action="rezerwacja" method="post">
+            <div style="display:flex;justify-content:center;"><h1>Godzina</h1></div>
+            <div id="panel">
+                <button type="button" onclick="plusDivs(-1)">&#10094;</button>
+            </div>
+            <div style="display:flex;justify-content:center;"><input type='submit' value='Submit'></div>
+        </form>
+        <script src="Page1.js"></script>
+    </body>
 </html>
