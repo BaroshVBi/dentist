@@ -18,11 +18,40 @@ var con = mysql.createConnection({
 	host: "localhost",
 	user: "root",
 	password: "root",
-	database: "dentist"
+	database: "dentist",
+	//timezone: "Z"
+});
+
+con.connect(function (err) {
+	if (err) throw err;
+	console.log("Connected!");
 });
 
 app.get('/', (req, res) => {
-	res.sendFile(__dirname + '/Public/Page1.html');
+	//res.sendFile(__dirname + '/Public/Page1.html');
+	var d = new Date();
+	var dzisiaj = d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate() + " 15:00:00";
+	console.log(dzisiaj);
+	var sql = "SELECT data FROM `wizyty` WHERE data > '" + dzisiaj + "'";
+	con.query(sql, function (err, result, fields) {
+		if (err) throw err;
+		console.log(result);
+		//console.log(fields);
+
+		var string = "";
+		for (var i = 0; i < result.length; i++) {
+			var time = new Date(result[i].data);
+			string +=  time.getFullYear() + "-" + (time.getMonth() + 1) + "-" + time.getDate() + " " + time.getHours() + ':00:00,';
+			//console.log(string);
+		}
+		//var t = new Date(result[0].data);
+		console.log(string);
+
+		res.sendFile(__dirname + '/Public/Page1.html');
+		res.cookie('rez', string);
+
+	});
+		
 });
 
 app.post('/rezerwacja', (req, res) => {
@@ -35,14 +64,10 @@ app.post('/rezerwacja', (req, res) => {
 app.post('/dane', (req, res) => {
 	console.log(req.body);
 
-	con.connect(function (err) {
+	var sql = "INSERT INTO wizyty (data, imie, tel) VALUES ('" + req.body.godzina + "', '" + req.body.imie + " " + req.body.nazwisko + "', '" + req.body.tel + "')";
+	con.query(sql, function (err, result) {
 		if (err) throw err;
-		console.log("Connected!");
-		var sql = "INSERT INTO wizyty (data, imie, tel) VALUES ('" + req.body.godzina + "', '" + req.body.imie + " " + req.body.nazwisko + "', '" + req.body.tel + "')";
-		con.query(sql, function (err, result) {
-			if (err) throw err;
-			console.log("1 record inserted");
-		});
+		console.log("1 record inserted");
 	});
 
 	res.end("Dziêkujemy za rezerwacje");

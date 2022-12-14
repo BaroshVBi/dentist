@@ -1,6 +1,7 @@
 var panel = document.getElementById('panel');
 var t = new Date();
 const tydzien = ['Niedziela', 'Poniedziałek', 'Wtorek', 'Środa', 'Czwartek','Piątek', 'Sobota']
+alert(getCookie('rez'));
 
 for (w = 0; w < 6; w++) {
     panel.innerHTML += "<div id='tydzien" + w + "' class='mySlides'>";
@@ -42,5 +43,24 @@ function showDivs(n) {
         x[i].style.display = "none";
     }
     x[slideIndex - 1].style.display = "block";
+}
+/////////////////////////////////////////////////////////////////////////////
+
+//https://www.w3schools.com/js/js_cookies.asp
+/////////////////////////////////////////////////////////////////////////////
+function getCookie(cname) {
+    let name = cname + "=";
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let ca = decodedCookie.split(';');
+    for (let i = 0; i < ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
 }
 /////////////////////////////////////////////////////////////////////////////
