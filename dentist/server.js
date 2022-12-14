@@ -18,8 +18,7 @@ var con = mysql.createConnection({
 	host: "localhost",
 	user: "root",
 	password: "root",
-	database: "dentist",
-	//timezone: "Z"
+	database: "dentist"
 });
 
 con.connect(function (err) {
@@ -28,28 +27,24 @@ con.connect(function (err) {
 });
 
 app.get('/', (req, res) => {
-	//res.sendFile(__dirname + '/Public/Page1.html');
 	var d = new Date();
 	var dzisiaj = d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate() + " 15:00:00";
 	console.log(dzisiaj);
+
 	var sql = "SELECT data FROM `wizyty` WHERE data > '" + dzisiaj + "'";
-	con.query(sql, function (err, result, fields) {
+	con.query(sql, function (err, result) {
 		if (err) throw err;
 		console.log(result);
-		//console.log(fields);
 
-		var string = "";
+		var rez = "";
 		for (var i = 0; i < result.length; i++) {
 			var time = new Date(result[i].data);
-			string +=  time.getFullYear() + "-" + (time.getMonth() + 1) + "-" + time.getDate() + " " + time.getHours() + ':00:00,';
-			//console.log(string);
+			rez +=  time.getFullYear() + "-" + (time.getMonth() + 1) + "-" + time.getDate() + " " + time.getHours() + ':00:00,';
 		}
-		//var t = new Date(result[0].data);
-		console.log(string);
+		console.log(rez);
 
 		res.sendFile(__dirname + '/Public/Page1.html');
 		res.cookie('rez', string);
-
 	});
 		
 });
@@ -57,8 +52,6 @@ app.get('/', (req, res) => {
 app.post('/rezerwacja', (req, res) => {
 	res.sendFile(__dirname + '/Public/Page2.html');
 	res.cookie('godzina', req.body.godzina);
-	//console.log("submit");
-	//console.log(req.body);
 });
 
 app.post('/dane', (req, res) => {
