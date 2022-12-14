@@ -1,7 +1,7 @@
 var panel = document.getElementById('panel');
 var t = new Date();
-const tydzien = ['Niedziela', 'Poniedziałek', 'Wtorek', 'Środa', 'Czwartek','Piątek', 'Sobota']
-alert(getCookie('rez'));
+const tydzien = ['Niedziela', 'Poniedziałek', 'Wtorek', 'Środa', 'Czwartek', 'Piątek', 'Sobota'];
+//alert(getCookie('rez'));
 
 for (w = 0; w < 6; w++) {
     panel.innerHTML += "<div id='tydzien" + w + "' class='mySlides'>";
@@ -29,8 +29,6 @@ var dzisiaj = new Date();
 for (i = 0; i < 5; i++) {
     wylacz(dzisiaj.getFullYear() + "-" + (dzisiaj.getMonth() + 1) + "-" + dzisiaj.getDate() + " 1" + i + ':00:00');
 }
-//wylacz('2022-12-14 14:00:00');
-
 
 function wylacz(id) {
     var el = document.getElementById("godzina" + id);
