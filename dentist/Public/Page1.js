@@ -25,6 +25,33 @@ for (w = 0; w < 6; w++) {
 }
 panel.innerHTML += "<button type='button' onclick='plusDivs(-1)'>&#10095;</button>";
 
+var dzisiaj = new Date();
+for (i = 0; i < 5; i++) {
+    wylacz(dzisiaj.getFullYear() + "-" + (dzisiaj.getMonth() + 1) + "-" + dzisiaj.getDate() + " 1" + i + ':00:00');
+}
+//wylacz('2022-12-14 14:00:00');
+
+
+function wylacz(id) {
+    var el = document.getElementById("godzina" + id);
+    var label = findLabel(el);
+
+    el.disabled = 'true';
+    label.style.backgroundColor = 'gray';
+}
+
+//https://stackoverflow.com/questions/285522/find-html-label-associated-with-a-given-input
+/////////////////////////////////////////////////////////////////////////////
+function findLabel(el) {
+    var idVal = el.id;
+    labels = document.getElementsByTagName('label');
+    for (var i = 0; i < labels.length; i++) {
+        if (labels[i].htmlFor == idVal)
+            return labels[i];
+    }
+}
+/////////////////////////////////////////////////////////////////////////////
+
 //https://www.w3schools.com/w3css/tryit.asp?filename=tryw3css_slideshow_self
 /////////////////////////////////////////////////////////////////////////////
 var slideIndex = 1;
