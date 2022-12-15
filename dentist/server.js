@@ -66,6 +66,10 @@ app.post('/dane', (req, res) => {
 	res.end("Dziêkujemy za rezerwacje");
 });
 
+app.get('/admin', (req, res) => {
+	res.sendFile(__dirname + '/Public/Page3.html');
+});
+
 http.listen(port, () => {
 
 });

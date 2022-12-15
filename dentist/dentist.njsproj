@@ -30,6 +30,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Content Include="database\wizyty.sql" />
+    <Content Include="Public\Page3.js">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="Public\Page2.js">
       <SubType>Code</SubType>
     </Content>
@@ -40,6 +43,9 @@
       <SubType>Code</SubType>
     </Content>
     <Content Include="Public\Page1.html">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Public\Page3.html">
       <SubType>Code</SubType>
     </Content>
     <Content Include="server.js" />
