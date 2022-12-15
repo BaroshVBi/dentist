@@ -14,14 +14,14 @@
                 <label for="imie">Imię:</label><input type="text" class="okienko" name="imie" placeholder="Jan" required /><br>
                 <label for="nazwisko">Nazwisko:</label><input type="text" class="okienko" name="nazwisko" placeholder="Kowalski" required /><br>
                 <label for="tel">nr. Tel:</label><input type="number" class="okienko" name="tel" min="111111111" max="999999999" placeholder="123456789" required /><br>
-                <label for="cel">Cel wizyty:</label><input list="lista" class="okienko" name="cel" placeholder="Konsultacja stomatologiczna" required />
-                <datalist id="lista">
-                    <option value="Konsultacja stomatologiczna">
-                    <option value="Leczenie kanałowe">
-                    <option value="Leczenie próchnicy">
-                    <option value="Wybielanie zębów">
-                    <option value="Usuwanie zębów">
-                </datalist><br>
+                <label for="cel">Cel wizyty:</label>
+                <select id="lista" class="okienko" name="cel" required>
+                    <option value="Konsultacja stomatologiczna">Konsultacja stomatologiczna</option>
+                    <option value="Leczenie kanałowe">Leczenie kanałowe</option>
+                    <option value="Leczenie próchnicy">Leczenie próchnicy</option>
+                    <option value="Wybielanie zębów">Wybielanie zębów</option>
+                    <option value="Usuwanie zębów">Usuwanie zębów</option>
+                </select><br>
                 <input type="submit" value="Zarezerwuj">
             </div>
         </form>
