@@ -1,7 +1,8 @@
 var panel = document.getElementById('panel');
 var t = new Date();
 const tydzien = ['Niedziela', 'Poniedziałek', 'Wtorek', 'Środa', 'Czwartek', 'Piątek', 'Sobota'];
-//alert(getCookie('rez'));
+var bloki = getCookie('rez').split(',');
+//alert(bloki.length);
 
 for (w = 0; w < 6; w++) {
     panel.innerHTML += "<div id='tydzien" + w + "' class='mySlides'>";
@@ -23,11 +24,14 @@ for (w = 0; w < 6; w++) {
         t.setDate(t.getDate() + 1);
     }
 }
-panel.innerHTML += "<button type='button' onclick='plusDivs(-1)'>&#10095;</button>";
+panel.innerHTML += "<button type='button' onclick='plusDivs(1)'>&#10095;</button>";
 
 var dzisiaj = new Date();
 for (i = 0; i < 5; i++) {
     wylacz(dzisiaj.getFullYear() + "-" + (dzisiaj.getMonth() + 1) + "-" + dzisiaj.getDate() + " 1" + i + ':00:00');
+}
+for (i = 0; i < bloki.length - 1; i++) {
+    wylacz(bloki[i]);
 }
 
 function wylacz(id) {

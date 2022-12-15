@@ -44,7 +44,7 @@ app.get('/', (req, res) => {
 		console.log(rez);
 
 		res.sendFile(__dirname + '/Public/Page1.html');
-		res.cookie('rez', string);
+		res.cookie('rez', rez);
 	});
 		
 });
