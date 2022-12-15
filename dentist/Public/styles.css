@@ -42,8 +42,12 @@ div {
         margin-right: auto;
     }
 
+        .radio-toolbar label:hover {
+        background-color:lightgrey;
+        }
+
     .radio-toolbar input[type="radio"]:checked + label {
-        background-color: #bbb;
+        background-color:azure;
     }
 
 .center {

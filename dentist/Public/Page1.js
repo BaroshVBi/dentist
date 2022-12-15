@@ -39,7 +39,9 @@ function wylacz(id) {
     var label = findLabel(el);
 
     el.disabled = 'true';
-    label.style.backgroundColor = 'gray';
+    label.style.backgroundColor = 'darkgray';
+    label.style.color = 'gray';
+    label.style.textDecoration = 'line-through';
 }
 
 //https://stackoverflow.com/questions/285522/find-html-label-associated-with-a-given-input
