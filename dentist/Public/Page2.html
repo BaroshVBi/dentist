@@ -7,22 +7,22 @@
         <title>Dane</title>
     </head>
     <body>
-        <h1>Dane</h1>
-        <form action="dane" method="post">
-            <div id="dane">
-                <label id="rezerwacja"></label><input id="rezerwacjainput" type="text" name="godzina" hidden required />
-                <label for="imie">Imię:</label><input type="text" name="imie" required /><br>
-                <label for="nazwisko">Nazwisko:</label><input type="text" name="nazwisko" required /><br>
-                <label for="tel">nr. Tel:</label><input type="number" name="tel" min="111111111" max="999999999" required /><br>
-                <label for="cel">Cel wizyty:</label><input list="lista" name="cel" required />
+        <form action="dane" class="form" method="post">
+            <div class="center"><h1>Dane</h1></div>
+            <div class="center2" id="dane">
+                <label id="rezerwacja"></label><input id="rezerwacjainput" type="text" name="godzina" hidden required /><br>
+                <label for="imie">Imię:</label><input type="text" class="okienko" name="imie" placeholder="Jan" required /><br>
+                <label for="nazwisko">Nazwisko:</label><input type="text" class="okienko" name="nazwisko" placeholder="Kowalski" required /><br>
+                <label for="tel">nr. Tel:</label><input type="number" class="okienko" name="tel" min="111111111" max="999999999" placeholder="123456789" required /><br>
+                <label for="cel">Cel wizyty:</label><input list="lista" class="okienko" name="cel" placeholder="Konsultacja stomatologiczna" required />
                 <datalist id="lista">
                     <option value="Konsultacja stomatologiczna">
                     <option value="Leczenie kanałowe">
                     <option value="Leczenie próchnicy">
                     <option value="Wybielanie zębów">
                     <option value="Usuwanie zębów">
-                </datalist>
-                <input type="submit" value="Submit">
+                </datalist><br>
+                <input type="submit" value="Zarezerwuj">
             </div>
         </form>
         <script src="Page2.js"></script>
