@@ -57,7 +57,7 @@ app.post('/rezerwacja', (req, res) => {
 app.post('/dane', (req, res) => {
 	console.log(req.body);
 
-	var sql = "INSERT INTO wizyty (data, imie, tel) VALUES ('" + req.body.godzina + "', '" + req.body.imie + " " + req.body.nazwisko + "', '" + req.body.tel + "')";
+	var sql = "INSERT INTO wizyty (data, imie, tel, cel) VALUES ('" + req.body.godzina + "', '" + req.body.imie + " " + req.body.nazwisko + "', '" + req.body.tel + "','" + req.body.cel + "')";
 	con.query(sql, function (err, result) {
 		if (err) throw err;
 		console.log("1 record inserted");

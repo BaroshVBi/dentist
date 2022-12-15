@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 13 Gru 2022, 14:52
+-- Czas generowania: 15 Gru 2022, 14:14
 -- Wersja serwera: 10.4.24-MariaDB
 -- Wersja PHP: 8.1.6
 
@@ -31,21 +31,21 @@ CREATE TABLE `wizyty` (
   `id` int(11) NOT NULL,
   `data` datetime NOT NULL,
   `imie` text NOT NULL,
-  `tel` int(11) NOT NULL
+  `tel` int(11) NOT NULL,
+  `cel` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Zrzut danych tabeli `wizyty`
 --
 
-INSERT INTO `wizyty` (`id`, `data`, `imie`, `tel`) VALUES
-(1, '0000-00-00 00:00:00', 'bar asdf', 234),
-(2, '2022-12-13 09:00:00', 'bar tek', 234),
-(3, '2022-12-13 11:00:00', 'sdf rte', 345),
-(4, '2022-12-13 13:00:00', 'sdf rte', 234),
-(5, '2022-12-17 13:00:00', 'cx dfg', 24),
-(6, '0000-00-00 00:00:00', 'bar rte', 123456789),
-(7, '2022-12-15 10:00:00', 'bar rte', 123456789);
+INSERT INTO `wizyty` (`id`, `data`, `imie`, `tel`, `cel`) VALUES
+(3, '2022-12-13 11:00:00', 'sdf rte', 345, ''),
+(4, '2022-12-13 13:00:00', 'sdf rte', 234, ''),
+(5, '2022-12-17 13:00:00', 'cx dfg', 24, ''),
+(7, '2022-12-15 10:00:00', 'bar rte', 123456789, ''),
+(9, '2022-12-30 11:00:00', 'sdf dfg', 111111112, ''),
+(10, '2022-12-16 10:00:00', 'bar asdf', 111111111, 'Konsultacja stomatologiczna');
 
 --
 -- Indeksy dla zrzutów tabel
@@ -65,7 +65,7 @@ ALTER TABLE `wizyty`
 -- AUTO_INCREMENT dla tabeli `wizyty`
 --
 ALTER TABLE `wizyty`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
