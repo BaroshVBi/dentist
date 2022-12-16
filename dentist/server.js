@@ -45,8 +45,7 @@ app.get('/', (req, res) => {
 
 		res.sendFile(__dirname + '/Public/Page1.html');
 		res.cookie('rez', rez);
-	});
-		
+	});	
 });
 
 app.post('/rezerwacja', (req, res) => {
@@ -67,7 +66,6 @@ app.post('/dane', (req, res) => {
 });
 
 app.get('/admin', (req, res) => {
-	//res.sendFile(__dirname + '/Public/Page3.html');
 	var d = new Date();
 	var dzisiaj = d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate() + " 8:00:00";
 	var sql = "SELECT * FROM `wizyty`"; // WHERE data > '" + dzisiaj + "'";
@@ -124,7 +122,6 @@ app.post('/usun', (req, res) => {
 		console.log("1 record deleted");
 		res.redirect('/admin');
 	});
-
 });
 
 app.post('/przenies', (req, res) => {
@@ -140,8 +137,6 @@ app.post('/przenies2', (req, res) => {
 		console.log("1 record changed");
 		res.redirect('/admin');
 	});
-	//res.sendFile(__dirname + '/Public/Page3.html');
-	//res.cookie('przenies', req.body.id);
 });
 
 http.listen(port, () => {
