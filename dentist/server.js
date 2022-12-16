@@ -70,7 +70,7 @@ app.get('/admin', (req, res) => {
 	//res.sendFile(__dirname + '/Public/Page3.html');
 	var d = new Date();
 	var dzisiaj = d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate() + " 8:00:00";
-	var sql = "SELECT * FROM `wizyty` WHERE data > '" + dzisiaj + "'";
+	var sql = "SELECT * FROM `wizyty`"; // WHERE data > '" + dzisiaj + "'";
 
 	var page = '<!DOCTYPE html>									' +
 		'<html>												' +
@@ -105,7 +105,7 @@ app.get('/admin', (req, res) => {
 				"<td>" + result[i].tel + "</td>" +
 				"<td>" + data + "</td>" +
 				"<td>" + result[i].cel + "</td>" +
-				"<td>przenies</td>" +
+				"<td><form action='przenies' method='post'><button type='submit' class='wtabeli' name='id' value ='" + result[i].id + "'>Przenieś</button></form></td>" +
 				"<td><form action='usun' method='post'><button type='submit' class='wtabeli' name='id' value ='" + result[i].id + "'>Usuń</button></form></td>" +
 				"</tr> ";
 		}
@@ -128,7 +128,20 @@ app.post('/usun', (req, res) => {
 });
 
 app.post('/przenies', (req, res) => {
+	res.sendFile(__dirname + '/Public/Page3.html');
+	res.cookie('przenies', req.body.id);
+});
 
+app.post('/przenies2', (req, res) => {
+	//console.log(req.body.data);
+	var sql = "UPDATE`wizyty` SET `data` = '" +req.body.data + " " + req.body.godzina  + "' WHERE`wizyty`.`id` =" + req.body.id; 
+	con.query(sql, function (err, result) {
+		if (err) throw err;
+		console.log("1 record changed");
+		res.redirect('/admin');
+	});
+	//res.sendFile(__dirname + '/Public/Page3.html');
+	//res.cookie('przenies', req.body.id);
 });
 
 http.listen(port, () => {

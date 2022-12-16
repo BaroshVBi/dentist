@@ -92,6 +92,17 @@ tr:nth-child(even) {
     text-align: center;
 }
 
+#id {
+    border-radius: 10px;
+    display: inline-grid;
+    background-color: #ddd;
+    padding: 6px 15px;
+    font-family: Arial;
+    font-size: 16px;
+    margin-bottom: 2px;
+    text-align: center;
+}
+
 #rezerwacja {
     border-radius: 10px;
     display: inline-grid;

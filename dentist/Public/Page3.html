@@ -4,10 +4,24 @@
 <head>
     <link rel="stylesheet" href="styles.css">
     <meta charset="utf-8" />
-    <title>Admin</title>
+    <title>Przenieś</title>
 </head>
 <body>
-    <div class="center"><h1>Admin</h1></div>
+    <div class="center"><h1>Przenieś</h1></div>
+    <form class="form center2" action="przenies2" method="post">
+        <label id="id"></label><input id="idinput" type="text" name="id" hidden required /><br>
+        <label for="data">Nowa data:</label>
+        <input type="date" class="okienko" name="data">
+        <label for="godzina">Nowa godzina:</label>
+        <select id="lista" class="okienko" name="godzina" required>
+            <option value="10:00:00">10:00</option>
+            <option value="11:00:00">11:00</option>
+            <option value="12:00:00">12:00</option>
+            <option value="13:00:00">13:00</option>
+            <option value="14:00:00">14:00</option>
+        </select>
+        <input type="submit" value="Przenieś">
+    </form>
     <script src="Page3.js"></script>
 </body>
 </html>
