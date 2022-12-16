@@ -58,9 +58,9 @@ tr:nth-child(even) {
         margin-right: auto;
     }
 
-        .radio-toolbar label:hover {
+    .radio-toolbar label:hover {
         background-color:lightgrey;
-        }
+    }
 
     .radio-toolbar input[type="radio"]:checked + label {
         background-color:azure;
