@@ -63,13 +63,54 @@ app.post('/dane', (req, res) => {
 		console.log("1 record inserted");
 	});
 
-	res.end("Dzi�kujemy za rezerwacje");
+	res.end("Dziękujemy za rezerwacje");
 });
 
 app.get('/admin', (req, res) => {
-	res.sendFile(__dirname + '/Public/Page3.html');
+	//res.sendFile(__dirname + '/Public/Page3.html');
+	var d = new Date();
+	var dzisiaj = d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate() + " 8:00:00";
+	var sql = "SELECT * FROM `wizyty` WHERE data > '" + dzisiaj + "'";
+
+	var page = '<!DOCTYPE html>									' +
+		'<html>												' +
+		'	<head>											' +
+		'		<link rel="stylesheet" href="styles.css">	' +
+		'		<meta charset="utf-8" />					' +
+		'		<title>Admin</title>						' +
+		'	</head>											' +
+		'	<body>											' +
+		'		<div class="center"><h1>Admin</h1></div>	' +
+		'		<table>										' +
+		'			<tr>									' +
+		'			<th>ID</th>								' +
+		'			<th>Pacjent</th>						' +
+		'			<th>NR Tel.</th>						' +
+		'			<th>Data</th>							' +
+		'			<th>Cel Wizyty</th>						' +
+		'			<th>Przenieś</th>						' +
+		'			<th>Usuń</th>							';
+				
+
+	con.query(sql, function (err, result) {
+		if (err) throw err;
+		console.log(result);
+
+		page += '		<script src="Page3.js"></script>			' +
+				'	</body>											' +
+				'</html>											';
+		res.send(page);
+	});
+});
+
+app.post('usun', (req, res) => {
+
+});
+
+app.post('przenies', (req, res) => {
+
 });
 
 http.listen(port, () => {
-
+	
 });
