@@ -83,18 +83,32 @@ app.get('/admin', (req, res) => {
 		'		<div class="center"><h1>Admin</h1></div>	' +
 		'		<table>										' +
 		'			<tr>									' +
-		'			<th>ID</th>								' +
-		'			<th>Pacjent</th>						' +
-		'			<th>NR Tel.</th>						' +
-		'			<th>Data</th>							' +
-		'			<th>Cel Wizyty</th>						' +
-		'			<th>Przenieś</th>						' +
-		'			<th>Usuń</th>							';
+		'				<th>ID</th>							' +
+		'				<th>Pacjent</th>					' +
+		'				<th>NR Tel.</th>					' +
+		'				<th>Data</th>						' +
+		'				<th>Cel Wizyty</th>					' +
+		'				<th>Przenieś</th>					' +
+		'				<th>Usuń</th>						' +
+		'			</tr>									';
 				
-
 	con.query(sql, function (err, result) {
 		if (err) throw err;
 		console.log(result);
+
+		for (var i = 0; i < result.length; i++) {
+			var d = new Date(result[i].data);
+			var data = d.getFullYear() + "." + (d.getMonth() + 1) + "." + d.getDate() + " " + d.getHours()+ ":00";
+			page += "<tr>" +
+				"<td>" + result[i].id + "</td>" +
+				"<td> " + result[i].imie + "</td >" +
+				"<td>" + result[i].tel + "</td>" +
+				"<td>" + data + "</td>" +
+				"<td>" + result[i].cel + "</td>" +
+				"<td>przenies</td>" +
+				"<td><form action='usun' method='post'><button type='submit' class='wtabeli' name='id' value ='" + result[i].id + "'>Usuń</button></form></td>" +
+				"</tr> ";
+		}
 
 		page += '		<script src="Page3.js"></script>			' +
 				'	</body>											' +
@@ -103,11 +117,17 @@ app.get('/admin', (req, res) => {
 	});
 });
 
-app.post('usun', (req, res) => {
+app.post('/usun', (req, res) => {
+	var sql = "DELETE FROM wizyty WHERE `wizyty`.`id` =" + req.body.id;
+	con.query(sql, function (err, result) {
+		if (err) throw err;
+		console.log("1 record deleted");
+		res.redirect('/admin');
+	});
 
 });
 
-app.post('przenies', (req, res) => {
+app.post('/przenies', (req, res) => {
 
 });
 

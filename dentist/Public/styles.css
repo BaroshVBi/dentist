@@ -75,6 +75,12 @@ tr:nth-child(even) {
     display: grid;
     justify-content: center;
 }
+
+.wtabeli {
+    width: 100%;
+    height: 100%;
+}
+
 #dane label {
     border-radius: 10px;
     display: inline-grid;
